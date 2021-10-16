@@ -14,7 +14,7 @@ Trex.addrex({ pattern: 'ass ?(.*)', fromMe: false,dontAdCommandList: true }, (as
        // if (match[1] === '') return await message.sendMessage(need);
 
         var rex = await axios.
-        get(`https://bx-hunter.herokuapp.com/api/nsfw/bj18?apikey=Ikyy69`, { responseType: 'arraybuffer' })
+        get(`https://pencarikode.xyz/api/blow?apikey=pais`, { responseType: 'arraybuffer' })
         await message.sendMessage(Buffer.from(rex.data), MessageType.video, { mimetype: Mimetype.gif, caption:  '\n\n   ❰🍁🔱  T Rex BOT  🔱🍁❱ ',quoted: message.data})
 
     }));
