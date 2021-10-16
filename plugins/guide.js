@@ -6,7 +6,7 @@ HIRUWA - TREX
 */
 
 const Trex = require('../events');
-const {MessageType, GroupSettingChange, Mimetype, MessageOptions} = require('@adiwajshing/baileys');
+const {MessageType, GroupSettingChange, Mimetype, MessageOptions, Presence} = require('@adiwajshing/baileys');
 const fs = require('fs');
 const Config = require('../config')
 const axios = require('axios')
@@ -62,7 +62,10 @@ Trex.addrex({pattern: 'guide', fromMe: false}, (async (message, match) => {
         sections: sections,
         listType: 1
        }
-       
+       await message.client.updatePresence(message.jid,Presence.composing)
+
+        await new Promise(r => setTimeout(r, 10000));
+ 
        await message.client.sendMessage(message.jid, button, MessageType.listMessage)
     
     }));
@@ -110,6 +113,9 @@ Trex.addrex({pattern: 'guide', fromMe: false}, (async (message, match) => {
         sections: sections,
         listType: 1
        }
+       await message.client.updatePresence(message.jid,Presence.composing)
+
+        await new Promise(r => setTimeout(r, 10000));
        
        await message.client.sendMessage(message.jid, button, MessageType.listMessage)
     
