@@ -1,5 +1,5 @@
 const Trex = require('../events');
-const {MessageType, MessageOptions, Mimetype} = require('@adiwajshing/baileys');
+const {MessageType, MessageOptions, Mimetype, Presence} = require('@adiwajshing/baileys');
 const {spawnSync} = require('child_process');
 const Config = require('../config');
 const chalk = require('chalk');
