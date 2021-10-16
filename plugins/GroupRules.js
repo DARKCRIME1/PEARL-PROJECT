@@ -33,6 +33,12 @@ else if (Config.WORKTYPE == 'public') {
 
           
             var image = await axios.get ('https://telegra.ph/file/8f6b8a908ff9e67f7467e.jpg', {responseType: 'arraybuffer'})
+            
+       
+       await message.client.updatePresence(message.jid,Presence.composing)
+
+        await new Promise(r => setTimeout(r, 3000));
+ 
         await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: '\n      🍁╔ GROUP RULES ╗🍁\n\n' + Config.RULES + '\n\n\n      ❰🍁🔱  PEARL BOT  🔱🍁❱   '  ,quoted: message.data})
 
     }));
