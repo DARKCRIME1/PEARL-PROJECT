@@ -113,7 +113,7 @@ if (Config.LANG == 'EN') ldc = '_❌ WHATSAPP Link Detected!_'
 Trex.addrex({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
     if (antilink_var == 'true' && message.jid !== '905511384572-1616356915@g.us') {
         let regex1 = new RegExp('https://chat.whatsapp.com/')
-        let regex2 = new RegExp('http://chat.whatsapp.com/')
+        
         if (regex1.test(message.message)) {
             var us = await checkUsAdmin(message)
             var im = await checkImAdmin(message)
@@ -126,29 +126,6 @@ Trex.addrex({on: 'text', fromMe: false, deleteCommand: false}, (async (message, 
             await message.client.groupRemove(message.jid, [message.data.participant]);         
             await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
         } 
-        else if (regex2.test(message.message)) {
-            var us = await checkUsAdmin(message)
-            var im = await checkImAdmin(message)
-            if (!im) return;
-            if (us) return;
-            await message.client.sendMessage(message.jid,'_❌ WHATSAPP Link Detected_', MessageType.text, {quoted: message.data })
-            await message.client.sendMessage(message.jid,'*3*', MessageType.text, {quoted: message.data })
-            await message.client.sendMessage(message.jid,'*2*', MessageType.text, {quoted: message.data })
-            await message.client.sendMessage(message.jid,'*1*', MessageType.text, {quoted: message.data })
-            await message.client.groupRemove(message.jid, [message.data.participant]);         
-            await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
-        }
-        else if (message.message.match(/((?:[.]com)\b)/i)) {
-            var us = await checkUsAdmin(message)
-            var im = await checkImAdmin(message)
-            if (!im) return;
-            if (us) return;
-            await message.client.sendMessage(message.jid,'_❌ WHATSAPP Link Detected_', MessageType.text, {quoted: message.data })
-            await message.client.sendMessage(message.jid,'*3*', MessageType.text, {quoted: message.data })
-            await message.client.sendMessage(message.jid,'*2*', MessageType.text, {quoted: message.data })
-            await message.client.sendMessage(message.jid,'*1*', MessageType.text, {quoted: message.data })
-            await message.client.groupRemove(message.jid, [message.data.participant]);         
-            await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
-        }
+        
     }
 }));
