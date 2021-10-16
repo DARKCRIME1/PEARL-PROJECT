@@ -64,7 +64,7 @@ Trex.addrex({pattern: 'guide', fromMe: false}, (async (message, match) => {
        }
        await message.client.updatePresence(message.jid,Presence.composing)
 
-        await new Promise(r => setTimeout(r, 10000));
+        await new Promise(r => setTimeout(r, 3000));
  
        await message.client.sendMessage(message.jid, button, MessageType.listMessage)
     
@@ -115,7 +115,7 @@ Trex.addrex({pattern: 'guide', fromMe: false}, (async (message, match) => {
        }
        await message.client.updatePresence(message.jid,Presence.composing)
 
-        await new Promise(r => setTimeout(r, 10000));
+        await new Promise(r => setTimeout(r, 3000));
        
        await message.client.sendMessage(message.jid, button, MessageType.listMessage)
     
