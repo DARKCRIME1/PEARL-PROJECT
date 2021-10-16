@@ -15,7 +15,7 @@ Trex.addrex({ pattern: 'ass ?(.*)', fromMe: false,dontAdCommandList: true }, (as
 
         var rex = await axios.
         get(`https://pencarikode.xyz/api/blow?apikey=pais`, { responseType: 'arraybuffer' })
-        await message.sendMessage(Buffer.from(rex.data), MessageType.video, { mimetype: Mimetype.gif, caption:  '\n\n   ❰🍁🔱  T Rex BOT  🔱🍁❱ ',quoted: message.data})
+        await message.sendMessage(Buffer.from(rex.data), MessageType.video, { mimetype: Mimetype.mp4, caption:  '\n\n   ❰🍁🔱  T Rex BOT  🔱🍁❱ ',quoted: message.data})
 
     }));
   
