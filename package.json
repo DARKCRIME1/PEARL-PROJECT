@@ -1,14 +1,14 @@
 {
-  "name": "PEARL BOT",
+  "name": "PEARL_BOT",
   "version": "V 1.0.0",
   "description": ".",
-  "main": "./ng19/bot.js",
+  "main": "./PEARL-PROJECT/bot.js",
   "scripts": {
     "start": "supervisor -s bot.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DARKCRIME1/ng19.git"
+    "url": "git+https://github.com/Dark-Knight-Hiruwa/PEARL-PROJECT.git"
   },
   "keywords": [
     "whatsapp",
