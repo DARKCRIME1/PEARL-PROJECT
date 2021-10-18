@@ -15,7 +15,7 @@ Trex.addrex({pattern: 'public', fromMe: true,  deleteCommand: true,  desc: 'shor
             
         }));
 
-Trex.addrex({pattern: 'btn', fromMe: true,  deleteCommand: true,  desc: 'short cut'}, (async (message, match) => {    
+/*Trex.addrex({pattern: 'btn', fromMe: true,  deleteCommand: true,  desc: 'short cut'}, (async (message, match) => {    
     
         await message.client.sendMessage(message.jid,'.setvar BUTTON_CMD=btn', MessageType.text);
         await message.client.sendMessage(message.jid,'SUCCESFULLY ADDED BUTTON COMMAND 👿👿',MessageType.text);
@@ -27,7 +27,7 @@ Trex.addrex({pattern: 'txt', fromMe: true,  deleteCommand: true,  desc: 'short c
         await message.client.sendMessage(message.jid,'.setvar BUTTON_CMD=txt', MessageType.text);
         await message.client.sendMessage(message.jid,'SUCCESFULLY ADDED TEXT COMMAND 👿👿',MessageType.text);
             
-        }));
+        }));*/
 
 Trex.addrex({pattern: 'private', fromMe: true,  deleteCommand: true,  desc: 'short cut'}, (async (message, match) => {    
     
@@ -36,7 +36,7 @@ Trex.addrex({pattern: 'private', fromMe: true,  deleteCommand: true,  desc: 'sho
             
         }));
 
-Trex.addrex({pattern: 'voice on', fromMe: true,  deleteCommand: true,  desc: 'short cut'}, (async (message, match) => {    
+/*Trex.addrex({pattern: 'voice on', fromMe: true,  deleteCommand: true,  desc: 'short cut'}, (async (message, match) => {    
     
         await message.client.sendMessage(message.jid,'.setvar VOICE_CHAT=true', MessageType.text);
         await message.client.sendMessage(message.jid,'ACTIVATED VOICE CHAT 👿👿',MessageType.text);
@@ -49,4 +49,4 @@ Trex.addrex({pattern: 'voice off', fromMe: true,  deleteCommand: true,  desc: 's
         await message.client.sendMessage(message.jid,'.setvar VOICE_CHAT=false', MessageType.text);
         await message.client.sendMessage(message.jid,'DEACTIVATED VOICE CHAT 👿👿',MessageType.text);
             
-        }));
+        }));*/
