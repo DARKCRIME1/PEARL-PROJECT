@@ -1,6 +1,6 @@
 {
-  "name": "T-REX",
-  "version": "V 3.0.0",
+  "name": "PEARL BOT",
+  "version": "V 1.0.0",
   "description": ".",
   "main": "./ng19/bot.js",
   "scripts": {
