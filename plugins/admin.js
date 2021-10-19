@@ -10,6 +10,7 @@ const {MessageType, GroupSettingChange, ChatModification, WAConnectionTest} = re
 const Trex = require('../events');
 const Config = require('../config');
 const got = require("got");
+const fs = require("fs")
 
 const Language = require('../language');
 const Lang = Language.getString('admin');
@@ -35,6 +36,7 @@ Trex.addrex({pattern: 'ban ?(.*)', fromMe: true,  deleteCommand: false,  onlyGro
     if (Config.BANMSG == 'default') {
         if (message.reply_message !== false) {
             await message.client.sendMessage(message.jid,'@' + message.reply_message.data.participant.split('@')[0] + '```, ' + Lang.BANNED + '```', MessageType.text, {contextInfo: {mentionedJid: [message.reply_message.data.participant]}});
+            await message.client.sendMessage(message.jid, fs.readFileSync('./Stic/ban.webp'), MessageType.sticker, { mimetype: Mimetype.webp, quoted: message.data, ptt: false})
             await message.client.groupRemove(message.jid, [message.reply_message.data.participant]);
         } else if (message.reply_message === false && message.mention !== false) {
             var etiketler = '';
@@ -43,6 +45,7 @@ Trex.addrex({pattern: 'ban ?(.*)', fromMe: true,  deleteCommand: false,  onlyGro
             });
 
             await message.client.sendMessage(message.jid,etiketler + '```, ' + Lang.BANNED + '```', MessageType.text, {contextInfo: {mentionedJid: message.mention}});
+            await message.client.sendMessage(message.jid, fs.readFileSync('./Stic/ban.webp'), MessageType.sticker, { mimetype: Mimetype.webp, quoted: message.data, ptt: false})
             await message.client.groupRemove(message.jid, message.mention);
         } else {
             return await message.client.sendMessage(message.jid,Lang.GIVE_ME_USER,MessageType.text);
@@ -51,6 +54,7 @@ Trex.addrex({pattern: 'ban ?(.*)', fromMe: true,  deleteCommand: false,  onlyGro
     else {
         if (message.reply_message !== false) {
             await message.client.sendMessage(message.jid,'@' + message.reply_message.data.participant.split('@')[0] + Config.BANMSG, MessageType.text, {contextInfo: {mentionedJid: [message.reply_message.data.participant]}});
+            await message.client.sendMessage(message.jid, fs.readFileSync('./Stic/ban.webp'), MessageType.sticker, { mimetype: Mimetype.webp, quoted: message.data, ptt: false})
             await message.client.groupRemove(message.jid, [message.reply_message.data.participant]);
         } else if (message.reply_message === false && message.mention !== false) {
             var etiketler = '';
@@ -59,6 +63,7 @@ Trex.addrex({pattern: 'ban ?(.*)', fromMe: true,  deleteCommand: false,  onlyGro
             });
 
             await message.client.sendMessage(message.jid,etiketler + Config.BANMSG, MessageType.text, {contextInfo: {mentionedJid: message.mention}});
+            await message.client.sendMessage(message.jid, fs.readFileSync('./Stic/ban.webp'), MessageType.sticker, { mimetype: Mimetype.webp, quoted: message.data, ptt: false})
             await message.client.groupRemove(message.jid, message.mention);
         } else {
             return await message.client.sendMessage(message.jid,Lang.GIVE_ME_USER,MessageType.text);
