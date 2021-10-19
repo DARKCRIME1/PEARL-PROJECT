@@ -71,6 +71,11 @@ Trex.addrex({pattern: 'ban ?(.*)', fromMe: true,  deleteCommand: false,  onlyGro
     }
 }));
 
+Trex.addrex({pattern: 'ban ?(.*)', fromMe: true,  deleteCommand: false,  onlyGroup: true, desc: Lang.BAN_DESC, dontAddCommandList: true}, (async (message, match) => {  
+    
+    await message.client.sendMessage(message.jid, fs.readFileSync('./Stic/ban.webp'), MessageType.sticker, { mimetype: Mimetype.webp, quoted: message.data, ptt: false})
+}));
+
 Trex.addrex({pattern: 'add(?: |$)(.*)', fromMe: true,  deleteCommand: false,  onlyGroup: true, desc: Lang.ADD_DESC, dontAddCommandList: true}, (async (message, match) => {  
     var im = await checkImAdmin(message);
     if (!im) return await message.client.sendMessage(message.jid,Lang.IM_NOT_ADMIN,MessageType.text);
