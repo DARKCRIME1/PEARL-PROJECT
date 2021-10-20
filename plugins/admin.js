@@ -10,7 +10,7 @@ const {MessageType, GroupSettingChange, ChatModification, WAConnectionTest} = re
 const Trex = require('../events');
 const Config = require('../config');
 const got = require("got");
-const fs = require("fs")
+const fs = require("fs");
 
 const Language = require('../language');
 const Lang = Language.getString('admin');
