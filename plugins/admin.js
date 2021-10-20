@@ -6,7 +6,7 @@ you may not use this file except in compliance with the License.
 T-REX HIRUWA
 */
 
-const {MessageType, GroupSettingChange, ChatModification, WAConnectionTest} = require('@adiwajshing/baileys');
+const {MessageType, GroupSettingChange, ChatModification, WAConnectionTest, Mimetype} = require('@adiwajshing/baileys');
 const Trex = require('../events');
 const Config = require('../config');
 const got = require("got");
