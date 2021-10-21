@@ -48,7 +48,7 @@ Trex.addrex({pattern: 'plug ?(.*)', fromMe: true, desc: Lang.INSTALL_DESC, warn:
         try {
             require('./' + plugin_name);
         } catch (e) {
-            fs.unlinkSync('/root/ng19/plugins/' + plugin_name + '.js')
+            fs.unlinkSync('/root/PEARL-PROJECT/plugins/' + plugin_name + '.js')
             return await message.sendMessage(Lang.INVALID_PLUGIN + ' ```' + e + '```');
         }
 
@@ -62,7 +62,7 @@ Trex.addrex({pattern: 'plug ?(.*)', fromMe: true, desc: Lang.INSTALL_DESC, warn:
 }));
 
 Trex.addrex({pattern: 'myplugin', fromMe: true, desc: Lang.PLUGIN_DESC }, (async (message, match) => {
-    var mesaj = Lang.PLIST;
+    var mesaj = 'MY PLUGINS';
     var plugins = await Db.PluginDB.findAll();
     if (plugins.length < 1) {
         return await message.sendMessage(Lang.NO_PLUGIN);
@@ -70,7 +70,7 @@ Trex.addrex({pattern: 'myplugin', fromMe: true, desc: Lang.PLUGIN_DESC }, (async
         plugins.map(
             (plugin) => {
                 let vf = plugin.dataValues.url.includes('Dark-Knight-Hiruwa') ? msg : inmsg
-                mesaj += '```' + plugin.dataValues.name + '```: ' + '👿  \n' + vf + '\n\n';
+                mesaj += '\n ```' + plugin.dataValues.name + '```: ' + '  \n' + vf + '\n\n';
             }
         );
         return await message.client.sendMessage(message.jid, mesaj, MessageType.text);
