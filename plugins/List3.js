@@ -8,7 +8,7 @@ const cwebp = require('cwebp-bin');
 const Config = require('../config');
 const need ="*වචනයක් අවශ්‍යයි 😭*"
              
- Trex.addrex({pattern: '2btn ?(.*)', fromMe: true, dontAdCommandList: true}, (async (message, match) => {
+ Trex.addrex({pattern: '3btn ?(.*)', fromMe: true, dontAdCommandList: true}, (async (message, match) => {
       if (match[1] === '') return await message.client.sendMessage(message.jid,need);
       var topText, bottomText, tl, t2, t3 ,t4,t5;
       if (match[1].includes('/')) {
@@ -28,7 +28,7 @@ const need ="*වචනයක් අවශ්‍යයි 😭*"
   const rows = [
  {title: `${bottomText}`, description: `\n\n${tl}`, rowId:"rowid1"},
  {title: `${t2}`, description: `\n\n${t3}`, rowId:"rowid2"},
- {title: `${t4}`, description: `\n\n${t5}`, rowId:"rowid1"}
+ {title: `${t4}`, description: `\n\n${t5}`, rowId:"rowid3"}
 ]
 
 const sections = [{title: `${topText}`, rows: rows}]
