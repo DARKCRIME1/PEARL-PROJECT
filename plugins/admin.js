@@ -1622,6 +1622,22 @@ Trex.addrex({pattern: 'invite ?(.*)', fromMe: true, dontAdCommandList: true, onl
     await message.client.sendMessage(message.jid,Lang.INVITE + 'https://chat.whatsapp.com/' + invite, MessageType.text);
 
 }));
+
+Trex.addrex({pattern: 'revoke', fromMe: true, onlyGroup: true, desc: 'REVOKE_DESC'}, (async (message, match) => {    
+
+    var im = await checkImAdmin(message);
+
+    if (!im) return await message.client.sendMessage(message.jid, Lang.IM_NOT_ADMIN, MessageType.text);
+
+    await message.client.revokeInvite(message.jid)
+
+    await message.client.sendMessage(message.jid, 'Succesfully Revoke Your Group Link 😍', MessageType.text);
+
+}));
+
+
+
+
 /*
 Trex.addrex({pattern: 'search ?(.*)', fromMe: true,  deleteCommand: false,  desc: Lang.SEARCH, dontAddCommandList: true}, async (message, match) => {
     const url = `https://gist.github.com/DARKCRIME1/e59aa70790d6238bf88a2aed62357ff9/raw`;
