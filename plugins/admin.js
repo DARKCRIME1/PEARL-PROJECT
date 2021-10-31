@@ -10,6 +10,7 @@ const {MessageType, GroupSettingChange, ChatModification, WAConnectionTest, Mime
 const Trex = require('../events');
 const Config = require('../config');
 const got = require("got");
+const axios = require('axios')
 const fs = require("fs");
 
 const Language = require('../language');
@@ -1635,16 +1636,14 @@ Trex.addrex({pattern: 'revoke', fromMe: true, onlyGroup: true, desc: 'REVOKE_DES
 
 }));
 
+Trex.addrex({pattern: 'search ?(.*)', fromMe: true,  deleteCommand: false,  desc: Lang.SEARCH, dontAddCommandList: true}, (async (message, match) => {
+     var pp = await message.client.getProfilePicture(message.jid)
+     var ss = await message.client.getStatus(message.jid)
+     var rex = await axios.
+        get(pp , { responseType: 'arraybuffer' })
+        await message.sendMessage(Buffer.from(rex.data), MessageType.image, { mimetype: Mimetype.png, caption:  '\n\n'+ss+'.. ',quoted: message.data})
 
-
-
-/*
-Trex.addrex({pattern: 'search ?(.*)', fromMe: true,  deleteCommand: false,  desc: Lang.SEARCH, dontAddCommandList: true}, async (message, match) => {
-    const url = `https://gist.github.com/DARKCRIME1/e59aa70790d6238bf88a2aed62357ff9/raw`;
-        const response = await got(url);
-        const json = JSON.parse(response.body);
-        if (response.statusCode === 200) return await message.client.sendMessage(message.jid, '*🍁 T Rex BOT supported plugins 🍁*\n\nYou can install these plugins by *.plug _<plugin_link>_*\nExample : .plug https://gist.github.com/BlackAmda/a06509cf406c3eb172e5173900d0ef87\n\n' + json.sinhala, MessageType.text);
-});*/
+    }));
 
 module.exports = {
     checkImAdmin: checkImAdmin
