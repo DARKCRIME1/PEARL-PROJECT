@@ -15,7 +15,10 @@ if (Config.WORKTYPE == 'public') {
 
     Trex.addrex({on: 'text', fromMe: true,  deleteCommand: false,  desc: Lang.ALIVE_DESC}, (async (message, match) => {
         let getword1bad = new RegExp('alive')
-        let getword2bad = new RegExp('MENU')
+        let getword2bad = new RegExp(`hi
+
+
+😍`)
         
         if (getword1bad.test(message.message)) {
             
