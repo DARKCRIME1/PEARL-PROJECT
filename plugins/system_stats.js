@@ -11,11 +11,15 @@ const Language = require('../language');
 const Lang = Language.getString('system_stats');
 
 
-if (Config.WORKTYPE == 'private') {
+if (Config.WORKTYPE == 'public') {
 
-    Trex.addrex({pattern: 'alive', fromMe: true,  deleteCommand: false,  desc: Lang.ALIVE_DESC}, (async (message, match) => {
-
-        if (Config.ALIVEMSG == 'default') {
+    Trex.addrex({on: 'text', fromMe: true,  deleteCommand: false,  desc: Lang.ALIVE_DESC}, (async (message, match) => {
+        let getword1bad = new RegExp('alive')
+        let getword2bad = new RegExp('MENU')
+        
+        if (getword1bad.test(message.message)) {
+            
+            if (Config.ALIVEMSG == 'default') {
             
             const buttons = [
   {buttonId: 'MENU', buttonText: {displayText: 'MENU'}, type: 1},//jakakkak
@@ -34,7 +38,7 @@ const btn = {
        
         await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: "```Hey There! I'm Online now. 🍁```\n\n🍁 My name : ❰🍁🔱 PEARL BOT 🔱🍁❱\n\n🍁 Developer: HIRUWA\n\n🍁Thank You For Using ❰🍁🔱  T Rex BOT  🔱🍁❱"})
             
-     //   await message.client.sendMessage (message.jid, btn, MessageType.buttonsMessage)
+        await message.client.sendMessage (message.jid, btn, MessageType.buttonsMessage)
 
 
     }
@@ -52,13 +56,20 @@ const btn = {
 
 
 
+
             
             var image = await axios.get ('https://telegra.ph/file/51129002f73a547da773b.jpg', {responseType: 'arraybuffer'})
        
         await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG + '\n\n*❰🍁🔱  PEARL BOT  🔱🍁❱*' })
-       // await message.client.sendMessage (message.jid, btn, MessageType.buttonsMessage)
+        await message.client.sendMessage (message.jid, btn, MessageType.buttonsMessage)
 
      }
+      }
+        
+    if (getword2bad.test(message.message)) {
+        
+        await message.client.sendMessage (message.jid,'.guide',MessageType.text);
+    }
     }));
 
     Trex.addrex({pattern: 'sysd', fromMe: true,  deleteCommand: false,  desc: Lang.SYSD_DESC, dontAddCommandList: true}, (async (message, match) => {
