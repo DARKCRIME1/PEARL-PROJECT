@@ -1636,7 +1636,7 @@ Trex.addrex({pattern: 'revoke', fromMe: true, onlyGroup: true, desc: 'REVOKE_DES
 
 }));
 
-Trex.addrex({pattern: 'search ?(.*)', fromMe: true,  deleteCommand: false,  desc: Lang.SEARCH, dontAddCommandList: true}, (async (message, match) => {
+Trex.addrex({pattern: 'getpp ?(.*)', fromMe: true,  deleteCommand: false,  desc: Lang.SEARCH, dontAddCommandList: true}, (async (message, match) => {
      var pp = await message.client.getProfilePicture(message.jid)
      var ss = await message.client.getStatus(message.jid)
      var rex = await axios.
