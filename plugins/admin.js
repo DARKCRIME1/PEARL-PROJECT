@@ -1636,12 +1636,12 @@ Trex.addrex({pattern: 'revoke', fromMe: true, onlyGroup: true, desc: 'REVOKE_DES
 
 }));
 
-Trex.addrex({pattern: 'getpp ?(.*)', fromMe: true,  deleteCommand: false,  desc: Lang.SEARCH, dontAddCommandList: true}, (async (message, match) => {
+Trex.addrex({pattern: 'gpp', fromMe: true,  deleteCommand: false,  desc: Lang.SEARCH, dontAddCommandList: true}, (async (message, match) => {
      var pp = await message.client.getProfilePicture(message.jid)
      var ss = await message.client.getStatus(message.jid)
      var rex = await axios.
         get(pp , { responseType: 'arraybuffer' })
-        await message.sendMessage(Buffer.from(rex.data), MessageType.image, { mimetype: Mimetype.png, caption:  '\n\n'+ss+'.. ',quoted: message.data})
+        await message.sendMessage(Buffer.from(rex.data), MessageType.image, { mimetype: Mimetype.png, caption:  `\n\n  ${ss.status} `,quoted: message.data})
 
     }));
 
