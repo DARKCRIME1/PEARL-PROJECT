@@ -77,7 +77,7 @@ else if (Config.WORKTYPE == 'public') {
             var status = await message.client.getStatus(message.jid) 
             var usppUrl = await message.client.getProfilePicture(message.jid) 
             var usexists = await message.client.isOnWhatsApp(message.jid)
-            const nwmsg = Lang.PRO_JID + `\n ${usexists.jid} \n\n` + Lang.PRO_DES + `\n`+status+`.`
+            const nwmsg = Lang.PRO_JID + `\n ${usexists.jid} \n\n` + Lang.PRO_DES + `\n${status.status}`
             const resimnw = await axios.get(usppUrl, {responseType: 'arraybuffer'})
             await message.sendMessage(
                 Buffer(resimnw.data), 
