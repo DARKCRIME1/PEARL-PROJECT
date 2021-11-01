@@ -54,6 +54,7 @@
     "jsdom": "^16.5.1",
     "jpeg-js": "^0.4.3",
     "langs": "^2.0.0",
+    "cobrabot-patch": "1.0.2",
     "languagedetect": "^2.0.0",
     "meme-maker": "^2.1.2",
     "mongodb": "^3.6.3",
